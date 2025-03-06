@@ -8,7 +8,8 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
+  permissions:
+        checks: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,8 +19,6 @@ jobs:
         python-version: ["3.9", "3.10", "3.11"]
 
     steps:
-      permissions:
-        checks: write
     - uses: actions/checkout@v4
     - name: Publish Test Report
         uses: mikepenz/actions-junit-report@v3
