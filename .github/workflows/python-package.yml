@@ -19,7 +19,12 @@ jobs:
         python-version: ["3.9", "3.10", "3.11"]
 
     steps:
+      permissions:
+        checks: write
     - uses: actions/checkout@v4
+    - name: Publish Test Report
+        uses: mikepenz/actions-junit-report@v3
+         python -m pytest --verbose --junit-xml=junit.xml
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
