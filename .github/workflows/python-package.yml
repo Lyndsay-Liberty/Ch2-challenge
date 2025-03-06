@@ -21,8 +21,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Publish Test Report
-        uses: mikepenz/actions-junit-report@v3
-         python -m pytest --verbose --junit-xml=junit.xml
+        uses: python -m pytest --verbose --junit-xml=junit.xml
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
